@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container mx-auto mt-4">
+  <div class="d-flex justify-content-center row">
+
+{% for user in users.items %}
+
+<div class="card">
+  <div class="card-content">
+      <h2>{{ user.name }}</h2>
+      <h2>{{ user.firstname }}</h2>
+      <h2>{{ user.gmail }}</h2>
+      <h2>{{ user.readbilet }}</h2>
+      <h2>{{ user.pass_hash }}</h2>
+      <h2>{{ user.kyrs }}</h2>
+     <div class="btn-wrapper text-center d-flex justify-content-between">
+       <form action="{{ url_for('delete_user', user_id=user.id) }}" method="POST">
+         <button class='btn btn-danger btn-sm' type="submit" value="Удалить" onclick="return confirm('Удалить книгу?')"><i class="fa fa-times"></i> Удалить</button>
+       </form>
+     </div>
+  </div>
+</div>
+{% endfor %}
+  </div>
+   </div>
+    {% for page_num in users.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+      {% if page_num %}
+        {% if users.page == page_num %}
+          <a class="btn btn-info mb-4" href="{{ url_for('users', page=page_num) }}">{{ page_num }}</a>
+        {% else %}
+          <a class="btn btn-outline-info mb-4" href="{{ url_for('users', page=page_num) }}">{{ page_num }}</a>
+        {% endif %}
+      {% else %}
+        ...
+      {% endif %}
+    {% endfor %} 
+{% endblock %}
+

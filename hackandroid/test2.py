@@ -1,0 +1,1 @@
+q = input(input(11))

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Politech-libary - список книг</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/69e2443572.js" crossorigin="anonymous"></script>
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+  
+</head>
+<body>
+ <nav class="navbar bg-success navbar-dark justify-content-center navdesctop">
+      <a class="navbar-brand logo-brand mr-5" href="{{ url_for('index') }}"><i class="fa fa-book-open" style="padding-right:5px"></i>Politech-libary</a>
+      <a class="navbar-brand mr-5 ml-5" href="{{ url_for('index') }}"><i class="fa fa-home"></i></a>
+      <a class="navbar-brand mr-5" href="{{ url_for('create') }}"><i class="fa fa-plus-square"></i></a>
+      <a class="navbar-brand mr-5" href="{{ url_for('search') }}"><i class="fa fa-search"></i></a>
+      <a class="navbar-brand mr-5" href="{{ url_for('best') }}"><i class="fa fa-star"></i></a>
+      <a class="navbar-brand mr-5" href="{{ url_for('users') }}"><i class="fa fa-users"></i></a> 
+      <a class="navbar-brand mr-5" href="{{ url_for('logout') }}"><i class="fa fa-arrow-left"></i></a>   
+ </nav>
+<div class="container justify-content-center mx-auto mb-5 row pa">
+  <div class="row justify-content-center mt-5">
+    <!-- Карточки книг -->
+    {% block content %} {% endblock %}
+    </div>
+  </div> 
+
+<!-- Футер -->
+    <footer class="site-footer bg-success">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h6>Цитата дня</h6>
+            <p class="text-warning">«Книги — идеальное развлечение: никакой рекламы, никаких подзарядок, часы удовольствия за каждый потраченный доллар. Меня удивляет, почему никто не берет с собой книгу, попадая в одну из неизбежных мертвых точек в жизни». <i>Стивен Кинг</i></p>
+          </div>
+          <div class="col-xs-6 col-md-3">
+            <h6>Жанры</h6>
+            <ul class="footer-links">
+              <li><a class="text-warning" href="/thrillers/">Триллеры</a></li>
+              <li><a class="text-warning" href="/detectiv/">Детективы</a></li>
+              <li><a class="text-warning" href="/drama/">Драма</a></li>
+              <li><a class="text-warning" href="/fantastic">Фэнтези</a></li>
+              <li><a class="text-warning" href="/biografi">Биографии</a></li>
+              <li><a class="text-warning" href="/programing">Программирование</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-6 col-md-3">
+            <h6>Разделы</h6>
+            <ul class="footer-links">
+              <li><a class="text-warning" href="">Купить книги</a></li>
+              <li><a class="text-warning" href="">Рецензии</a></li>
+              <li><a class="text-warning" href="">Заметки</a></li>
+              <li><a class="text-warning" href="">Цитаты</a></li>
+              <li><a class="text-warning" href="">Экранизации</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text text-warning">&copy; 2023 Все права защищены 
+         <a class="text-warning" href="#">Politech-libary</a>.
+            </p>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+              <li><a class="facebook text-white" href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a class="twitter text-white" href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a class="dribbble text-white" href="#"><i class="fa fa-telegram"></i></a></li>
+              <li><a class="linkedin text-white" href="#"><i class="fa fa-linkedin"></i></a></li>   
+            </ul>
+          </div>
+        </div>
+      </div>
+</footer>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script id="rendered-js" >
+$(document).ready(function () {
+  $('.card').delay(1800).queue(function (next) {
+    $(this).removeClass('hover');
+    $('a.hover').removeClass('hover');
+    next();
+  });
+});
+</script>
+</body>
+</html>
